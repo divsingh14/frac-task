@@ -14,6 +14,7 @@ class ViewTodo extends React.Component{
 			value: '',
 			error: ''
 		},
+		editId:'',
 		error: ''
 	}
 
@@ -117,8 +118,10 @@ class ViewTodo extends React.Component{
 }
 
 const mapStateToProps = (state,ownProps)=>{
+	const params = new URLSearchParams(ownProps.location.search);
+	const id = params.get('search');
 	return {
-		todo : state.fetchedState
+		todo : state[id]
 	}
 }
 

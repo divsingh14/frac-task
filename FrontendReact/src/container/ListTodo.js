@@ -19,6 +19,7 @@ class ListTodo extends Component{
 	}
 
 	renderList(){
+		console.log(this.props.todos)
 		if(this.props.todos !== undefined && this.props.todos.length > 0){
 			return this.props.todos.map(todo => {
 				return <ListItem 
@@ -53,15 +54,8 @@ class ListTodo extends Component{
 }
 
 const mapStateToProps =(state)=>{
-	let todos;
-	if(state !== undefined){
-		todos = Object.values(state.data); 
-	}else{
-		todos = state; 
-	}
-
 	return {
-		todos : todos
+		todos : Object.values(state)
 	};
 }
 
